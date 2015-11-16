@@ -4,6 +4,12 @@
 
 **Klasse**: 5AHITM
 
+### Requirements
+
+**Pyglet** via pip
+
+> pip install pyglet
+
 ### Aufgabenstellung
 
 In einem Team (2) sind folgende Anforderungen zu erfüllen.
