@@ -10,6 +10,10 @@
 
 > pip install pyglet
 
+
+**Noise** via pip
+> pip install noise
+
 ### Aufgabenstellung
 
 In einem Team (2) sind folgende Anforderungen zu erfüllen.
