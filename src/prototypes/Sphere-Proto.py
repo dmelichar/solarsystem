@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 """ Trying to build a Sphere and a basic camera
 
@@ -36,6 +37,10 @@ __version__ = "1.0"
 __maintainer__ = "Daniel Melichar"
 __email__ = "dmelichar@student.tgm.ac.at"
 __status__ = "Deployed"
+
+
+
+### The following code is writen in the OpenGL Shading Langauge (GLSL)
 
 vert_shader = shader.VertexShader('vertex', '''
 	/* simple vertex shader that stores the vertex position, normal
@@ -84,12 +89,13 @@ atmosphere_frag_shader = shader.FragmentShader('atmosphere', shader_noise_glsl +
 		gl_FragColor = (ambient + diffuse + specular) * color * h;
 	}
 ''')
+
 atmosphere_prog = shader.ShaderProgram(vert_shader, atmosphere_frag_shader)
 atmosphere_prog.install()
 atmosphere_prog.uset1F('scale', 0.3)
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
     global xrot, yrot, d
     win = pyglet.window.Window(width=640, height=640, resizable=True, visible=False,
                                config=pyglet.gl.Config(sample_buffers=1, samples=4, double_buffer=True, depth_size=24))
@@ -108,7 +114,7 @@ if __name__ == '__main__':
     noisetex.load()
 
     earth_texture = pyglet.image.load(
-        os.path.join(os.path.dirname(__file__),'..', 'res', "earth.1024x512.jpg")).get_mipmapped_texture()
+        os.path.join(os.path.dirname(__file__), '..', 'res', "earth.1024x512.jpg")).get_mipmapped_texture()
     glTexParameteri(earth_texture.target, GL_TEXTURE_WRAP_S, GL_REPEAT)
     glTexParameteri(earth_texture.target, GL_TEXTURE_WRAP_T, GL_REPEAT)
     glTexParameteri(earth_texture.target, GL_TEXTURE_MAG_FILTER, GL_LINEAR)
@@ -152,6 +158,8 @@ if __name__ == '__main__':
     def on_draw():
         global xrot, yrot
         win.clear()
+
+        # Sphere with Earth Texture
         glLoadIdentity()
         glTranslatef(0, 0, -4.5)
         glRotatef(xrot, 1.0, 0.0, 0.0)
@@ -160,8 +168,9 @@ if __name__ == '__main__':
         glDisable(GL_TEXTURE_3D)
         glEnable(earth_texture.target)
         glDisable(GL_BLEND)
-        gluSphere(earth, 0.65, 60, 60)
+        gluSphere(earth, 0.45, 60, 60)
 
+        # Sphere with Earth atmosphere
         glLoadIdentity()
         glTranslatef(0, 0, -4.5)
         glRotatef(xrot, 1.0, 0.0, 0.0)
@@ -172,9 +181,8 @@ if __name__ == '__main__':
         glEnable(GL_BLEND)
         atmosphere_prog.install()
         atmosphere_prog.uset1F('time', time)
-        gluSphere(earth, 0.65 + atmosphere_depth, 60, 60)
+        gluSphere(earth, 0.45 + atmosphere_depth, 20, 20)
         atmosphere_prog.uninstall()
-
 
     def update(dt):
         global spin, time

@@ -11,6 +11,9 @@
 > pip install pyglet
 
 
+**Pyglet-GUI** via pip
+> pip install git+https://github.com/jorgecarleitao/pyglet-gui.git
+
 **Noise** via pip
 > pip install noise
 
