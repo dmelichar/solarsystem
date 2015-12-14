@@ -23,6 +23,8 @@ Link for Noise: https://github.com/caseman/noise.git
 """
 
 import os
+from math import cos
+from math import sin
 import pyglet
 from pyglet.gl import *
 import ctypes
@@ -97,7 +99,7 @@ atmosphere_prog.uset1F('scale', 0.3)
 
 if __name__ == '__main__':
     global xrot, yrot, d
-    win = pyglet.window.Window(width=640, height=640, resizable=True, visible=False,
+    win = pyglet.window.Window(width=1240, height=1240, resizable=True, visible=False,
                                config=pyglet.gl.Config(sample_buffers=1, samples=4, double_buffer=True, depth_size=24))
 
     glEnable(GL_LIGHTING)
@@ -114,7 +116,7 @@ if __name__ == '__main__':
     noisetex.load()
 
     earth_texture = pyglet.image.load(
-        os.path.join(os.path.dirname(__file__), '..', 'res', "earth.1024x512.jpg")).get_mipmapped_texture()
+        os.path.join(os.path.dirname(__file__), '..', '..', 'res', "earth.1024x512.jpg")).get_mipmapped_texture()
     glTexParameteri(earth_texture.target, GL_TEXTURE_WRAP_S, GL_REPEAT)
     glTexParameteri(earth_texture.target, GL_TEXTURE_WRAP_T, GL_REPEAT)
     glTexParameteri(earth_texture.target, GL_TEXTURE_MAG_FILTER, GL_LINEAR)
@@ -133,6 +135,9 @@ if __name__ == '__main__':
     yrot = spin = 0.0
     xrot = -90.0
     time = 0
+    posx = 0.5
+    posy = 0.5
+    counterForEarth = 0
 
 
     def on_resize(width, height):
@@ -184,11 +189,50 @@ if __name__ == '__main__':
         gluSphere(earth, 0.45 + atmosphere_depth, 20, 20)
         atmosphere_prog.uninstall()
 
+
+        # Sphere with Earth Texture
+        glLoadIdentity()
+        glTranslatef(posx, posy, -4.5)
+        glRotatef(xrot, 1.0, 0.0, 0.0)
+        glRotatef(yrot, 0.0, 1.0, 0.0)
+        glRotatef(spin, 0.0, 0.0, 1.0)
+        glDisable(GL_TEXTURE_3D)
+        glEnable(earth_texture.target)
+        glDisable(GL_BLEND)
+        gluSphere(earth, 0.1, 60, 60)
+
+        # Sphere with Earth atmosphere
+        glLoadIdentity()
+        glTranslatef(posx, posy, -4.5)
+        glRotatef(xrot, 1.0, 0.0, 0.0)
+        glRotatef(yrot, 0.0, 1.0, 0.0)
+        glRotatef(spin * atmosphere_speed, 0.0, 0.0, 1.0)
+        glDisable(earth_texture.target)
+        noisetex.enable()
+        glEnable(GL_BLEND)
+        atmosphere_prog.install()
+        atmosphere_prog.uset1F('time', time)
+        gluSphere(earth, 0.1 + atmosphere_depth, 20, 20)
+        atmosphere_prog.uninstall()
+
+
     def update(dt):
-        global spin, time
+        global spin, time, posx, posy, counterForEarth
         spin += dt * 3.0
         time += dt
 
+        DEG2RAD = 3.14159/180.0
+
+        if counterForEarth>359:
+            counterForEarth = 0
+        else:
+            counterForEarth += 1
+
+        posx = cos(counterForEarth*DEG2RAD)*0.5
+        posy = sin(counterForEarth*DEG2RAD)*0.3
+       # print(posx)
+       # print(posy)
+        print(counterForEarth)
 
     pyglet.clock.schedule_interval(update, 1.0 / 30.0)
 
