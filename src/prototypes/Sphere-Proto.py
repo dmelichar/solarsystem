@@ -116,7 +116,7 @@ if __name__ == '__main__':
     noisetex.load()
 
     earth_texture = pyglet.image.load(
-        os.path.join(os.path.dirname(__file__), '..', '..', 'res', "earth.1024x512.jpg")).get_mipmapped_texture()
+        os.path.join(os.path.dirname(__file__), '..', '..', 'res', 'textures', 'earth.jpg')).get_mipmapped_texture()
     glTexParameteri(earth_texture.target, GL_TEXTURE_WRAP_S, GL_REPEAT)
     glTexParameteri(earth_texture.target, GL_TEXTURE_WRAP_T, GL_REPEAT)
     glTexParameteri(earth_texture.target, GL_TEXTURE_MAG_FILTER, GL_LINEAR)

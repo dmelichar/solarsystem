@@ -1,0 +1,4 @@
+WARNING / NOTE
+These are prototypes that we built to get a better understanding of the
+libraries that we'd be using - they have nothing to do with the actual project.
+The prototypes can be run on their own without the dependency of other files.

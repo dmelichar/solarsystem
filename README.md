@@ -6,16 +6,29 @@
 
 ### Requirements
 
-**Pyglet** via pip
+- Doxygen
+- Python3
+- Virtualenv (recommended)
 
-> pip install pyglet
+### Verwendung
 
+1: Clone this repo
 
-**Pyglet-GUI** via pip
-> pip install git+https://github.com/jorgecarleitao/pyglet-gui.git
+```sh
+git clone http://github.com/dmelichar-tgm/solarsystem solarsystem
+cd solarsystem
+```
 
-**Noise** via pip
-> pip install noise
+2: Execute the setup script
+
+```sh
+./setup
+```
+
+3: Run the application
+```python
+python3 SolarSystem.py
+```
 
 ### Aufgabenstellung
 
