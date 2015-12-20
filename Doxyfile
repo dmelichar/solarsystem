@@ -2,15 +2,12 @@
 
 PROJECT_NAME = "Solar System"
 OUTPUT_DIRECTORY = ./docs/doxygen
-INPUT = .
+INPUT = src/ util/ ./setup SolarSystem.py
 FILE_PATTERNS = *.py 
 RECURSIVE = YES 
 MULTILINE_CPP_IS_BRIEF = YES
-DETAILS_AT_TOP         = YES
 EXTRACT_ALL            = YES
 EXTRACT_STATIC         = YES
-SHOW_DIRECTORIES       = YES
-FILE_VERSION_FILTER    = "cvs version -q"
 SOURCE_BROWSER         = YES
 ALPHABETICAL_INDEX     = YES
 COLS_IN_ALPHA_INDEX    = 8
@@ -19,3 +16,4 @@ DISABLE_INDEX          = YES
 GENERATE_TREEVIEW      = YES
 GENERATE_TREEVIEW      = YES
 GENERATE_LATEX         = YES
+QUIET				   = YES
