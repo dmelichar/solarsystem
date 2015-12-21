@@ -1,0 +1,36 @@
+\section{Umsetzung der Applikation}
+\label{sec:umsetzung}
+
+\subsection{Erste Phase: Prototyping}
+In dieser Phase ging es prinzipiell darum ein wenig Ahnung von Pyglet und OpenGL im
+allgemeinen zu erhalten. Wir haben hier zunächst eine einfache \textit{Hello World} Applikation
+mit Pyglet erstellt - hierbei gab es kaum probleme.
+\\ \\
+Beim nächsten Prototyp ging es darum einen konkreten Planeten zu erstellen, das heißt mit Textur, 
+mit genauer größe und um eine Axe rotierend. Dies auch relativ einfach, und mit Verwendung der
+\textit{Noise} library sah es sogar sehr Anspruchsvoll aus. 
+\\ \\
+Der dritte Prototyp beschäftigte sich damit, vertraut mit Pyglet-GUI zu werden. Es wurde hierfür
+eine einfache GUI mit einigen Buttons erstellt, und auch gleich evaluiert welche möglichkeiten
+durch pyglet-gui geboten werden.
+
+\subsection{Zweite Phase: Recherche}
+Siehe Recherche und evaluierung.
+
+\subsection{Dritte Phase: GUI- und technisches Design}
+Siehe Architektur- und UI-Design.
+
+\subsection{Vierte Phase: Konkrete Umsetzung}
+Bei der konkreten Umsetzung war das erste Ziel das UML in Klassen umzuwandeln. Dies ist auch relativ
+gut gegangen. Und bei der ersten Ausführung waren auch die Anforderungen umgesetzt - sprich ein
+zentraler Stern und ein darum rotierender Planet mit Mond. 
+\\ \\
+Nun ging es darum das noch ein wenig schöner und Objektorientierter zu gestallten. Dafür wurde eine
+eigenes Modul \textit{util} für die Kamera, die Skybox (alle Planeten und generell astronomische Objekte befinden
+sich in einer Sphere welche eine Textur hat), eine Klasse die Texturen managed (also korrekte größen und dergleichen),
+und einen FPSCounter welcher die FPS der Applikation anzeigt.
+
+\subsection{Aufgetretete Fehler}
+Während der Entwicklung sind ein paar Fehler aufgetreten, diese wurden aber alle behoben bis auf einen. Dieser eine
+Fehler ist der Grund warum die GUI nicht ganz korrekt funtkioniert. Wir haben bereits öfters versucht (mittels Debugging)
+diesen Fehler zu beheben, leider ist uns das nicht gelungen - die Funktionen sind aber gegeben.

@@ -1,3 +1,24 @@
 \section{Recherche und evaluierung}
 \label{sec:research}
 
+\subsection{Python OpenGL Libraries}
+
+Folgende libaries für die Umsetzung der Applikation wurden evauliert.
+
+\begin{itemize}
+	\item Pygame
+	\item Pyglet
+	\item Panda3D
+\end{itemize}
+
+Letzendlich haben wir uns für Pyglet entschieden, da dieses die beste funktionalität bietet mit den geringsten
+Installationsaufwand. Pand3D besitzt bereits ein fertiges Example für ein Solar System, was die Sache ein wenig
+zu einfach machen würde. Pygame ist im gegensatz zu Pyglet nicht mehr so gut maintained und benötigt noch
+zusätzliche libraries um z.B. texturen zu setzten. 
+\\
+Für die GUI der Applikation hat sich Pyglet-GUI angeboten. Es verfügt zwar zugegeben nicht über all zu viele
+Features, aber über genügend um ein simples Interface zu erstellen.
+
+\subsection{Mathematische funktionen von elliptischen Bahnen}
+Für diese wurden die in den Quellen angegeben Berechnungen verwendet. Diese Quellen wurden von Hrn. Rene Hollander
+vorgeschlagen. Die Umsetzung der Bahnen war eigentlich nur ein Umsetzen der Gleichungen.

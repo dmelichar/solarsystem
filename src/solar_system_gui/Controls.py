@@ -170,14 +170,7 @@ class Controls(object):
                 return EVENT_HANDLED
             else:
                 ray = self.camera.create_ray()
-                for body in self.objects:
-                    if body.intersects(ray):
-                        print(body.name + " hit!")
-                        self.selected_body = body
-                        self.camera_offset = self.selected_body.xyz - self.camera.position
-                        break
-                else:
-                    self.selected_body = None
+
 
     def get_dx(self):
         """

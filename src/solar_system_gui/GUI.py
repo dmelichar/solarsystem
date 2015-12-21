@@ -1,7 +1,5 @@
 """
-Created on 08.12.2015
-
-
+Author: Sarah Kreutzer
 """
 
 import datetime
@@ -58,7 +56,7 @@ class GUI:
         self.label_fps.set_text(str(fps) + "fps")
 
     def update_time(self, timestep, solarsystem_time):
-        self.label_time.set_text("1 second = " + str(floor(timestep / 60 / 60)) + "hours. Current Date: " + str(J2000 + datetime.timedelta(seconds=solarsystem_time)))
+        pass #self.label_time.set_text("1 second = " + str(floor(timestep / 60 / 60)) + "hours. Current Date: " + str(J2000 + datetime.timedelta(seconds=solarsystem_time)))
 
     def draw(self):
         #if self.controls.draw_help_label:

@@ -22,7 +22,7 @@ __license__ = "GPL"
 __version__ = "1.0"
 __maintainer__ = "Daniel Melichar"
 __email__ = "dmelichar@student.tgm.ac.at"
-__status__ = "Production"
+__status__ = "Deployed"
 
 
 class EllipticalOrbit(AstronomicalOrbit):

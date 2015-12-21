@@ -14,14 +14,14 @@ from pyglet.graphics import Batch
 from astronomical_objects.AstronomicalObject import AstronomicalObject
 from solar_system_renderer.Renderers import AOOrbitingRenderer
 
-__author__ = "Daniel Melichar"
+__author__ = "Sarah Kreutzer"
 __copyright__ = "Copyright 2015"
 __credits__ = ["Daniel Melichar", "Sarah Kreutzer"]
 __license__ = "GPL"
 __version__ = "1.0"
-__maintainer__ = "Daniel Melichar"
-__email__ = "dmelichar@student.tgm.ac.at"
-__status__ = "Production"
+__maintainer__ = "Sarah Kreutzer"
+__email__ = "skreutzer@student.tgm.ac.at"
+__status__ = "Deployed"
 
 
 class OrbitalObject(AstronomicalObject):

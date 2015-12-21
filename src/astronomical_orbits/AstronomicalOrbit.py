@@ -11,14 +11,14 @@ order to work.
 from abc import ABCMeta, abstractmethod
 from util import auto_str
 
-__author__ = "Daniel Melichar"
+__author__ = "Sarah Kreutzer"
 __copyright__ = "Copyright 2015"
 __credits__ = ["Daniel Melichar", "Sarah Kreutzer"]
 __license__ = "GPL"
 __version__ = "1.0"
-__maintainer__ = "Daniel Melichar"
-__email__ = "dmelichar@student.tgm.ac.at"
-__status__ = "Production"
+__maintainer__ = "Sarah Kreutzer"
+__email__ = "skreutzer@student.tgm.ac.at"
+__status__ = "Deployed"
 
 @auto_str
 class AstronomicalOrbit(object):
